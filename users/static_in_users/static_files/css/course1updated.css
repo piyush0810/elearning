@@ -1,0 +1,48 @@
+body {
+			  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)),url('slider_background.jpg');
+			    background-attachment: fixed;
+				background-size: 100% 100%;
+				font-family: Arial, Helvetica, sans-serif;
+			}
+.bg-dark{
+	height:50px;
+	font-weight: bold;
+	margin:0, auto;
+	}
+.mid-bar {
+	background-color:#2E377B;
+	color:#FFFFFF;
+	height:60px;
+	padding:10px;
+	text-align:center;
+	font-size:300%;
+	margin-bottom:0px;
+	position:relative;
+	bottom:20px;
+	border-radius: 10px;
+	}
+.mid-bar.container-fluid {
+	width:100%;
+	}
+.card-bg{
+	color:#FFFFFF;
+	background-color:#1A1A1A;
+	width:330px;
+	height:330px;
+	float:left;
+	margin:30px;
+	}
+.card-br{
+	border-radius:10px;
+	}
+.breadcrumb-up{
+	position:relative;
+	bottom:20px;
+}
+.card-footup{
+	font-size:150%;
+}
+.card-text {
+	text-align:center;
+}
+
