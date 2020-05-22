@@ -3,9 +3,73 @@
 
 
 {%block content%}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="{% static "css/affiliate.css" %}" rel="stylesheet"/>
 
 
-<h1> {{profile.affamount}}</h1>
-<h1> {{profile.referral.url}} </h1>
-    
+
+<div class="card ml-5 mr-5 s rounded-lg t" style="background-color: #DD337E; color:white ">
+    <div class="card-body">
+        <h4 class="card-title">Your Refferal Link:</h4>
+
+        <h6 class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </h6>
+    </div>
+    <hr>
+    <h2> {{profile.referral.url}} </h2>
+
+    <div class="card-footer bg-transparent ">
+        <h6>Share</h6>
+        <a href="http://www.twitter.com/share?url={{profile.referral.url}}/"><i class="fa fa-twitter"></i></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{profile.referral.url}}" target="_blank"><i class="fa fa-facebook"></i></a>
+        <a href="whatsapp://send?text=https://www.google.com"><i class="fa fa-whatsapp"></i></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{profile.referral.url}}&title=&summary=&source="><i class="fa fa-linkedin"></i></a>
+        <a href="mailto:info@example.com?&subject=&body={{profile.referral.url}} "><i class="fa fa-share"></i></a>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="row row-cols-1 row-cols-md-2 ml-5 mr-5">
+    <div class="col mb-2" style="padding-left: 80px; padding-right: 80px;" >
+        <div class="card s rounded-pill border border-light" style="background-color: #b3d0b4">
+            <i class="fa fa-stack-overflow icon" style="font-size: 3.5rem; float: left"></i>
+            <div class="content" style="text-align: center">
+            <h5 class="card-text">Payments Made Through Your link</h5>
+            <h3 class="card-title">{{profile.affamount}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col mb-2" style="padding-left: 80px; padding-right: 80px;">
+        <div class="card s rounded-pill border border-light" style="background-color: #b3d0b4">
+            <i class="fa fa-money icon" style="font-size: 3.5rem; float: left"></i>
+            <div class="content" style="text-align: center">
+            <h5 class="card-text">Redeemable Amount</h5>
+            <h3 class="card-title">₹ {{profile.affamount}}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="square"><svg width="250" height="250" viewBox="0 0 242 242" fill="none" xmlns="http://www.w3.org/2000/svg" data-confettis="" data-confettis-animate="rotate" data-confettis-from="50deg" data-confettis-to="10deg">
+    <rect x="62.5405" y="20" width="164.364" height="164.364" transform="rotate(15 62.5405 20)" stroke="#5DD0C2" stroke-width="32.5766" stroke-linecap="round"></rect>
+</svg></div>
+
+<div class="triangle"><svg width="200" height="200" viewBox="0 0 638 638" fill="none" xmlns="http://www.w3.org/2000/svg" data-confettis="" data-confettis-animate="rotate" data-confettis-from="-30deg" data-confettis-to="0">
+        <path d="M202.125 202.125L595.181 307.444L307.444 595.181L202.125 202.125Z" stroke="#FF6768" stroke-width="50" stroke-linecap="round"></path>
+      </svg></div>
+
+
+<div class="box"><svg width="200" height="200" viewBox="0 0 259 236" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M61.0463 76.2493L38.2493 175.095L137.095 197.892" stroke="#4444FF" stroke-width="40.3867"></path>
+    <path d="M197.757 159.967L220.554 61.1215L121.709 38.3244" stroke="#4444FF" stroke-width="40.3867"></path>
+</svg></div>
+
+
 {% endblock %}

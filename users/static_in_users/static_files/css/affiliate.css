@@ -1,0 +1,63 @@
+body{
+    background-color: #0d161f;
+}
+
+hr{
+    margin: 0;
+}
+h4,h6{
+    margin: auto;
+}
+
+.icon{
+    position: relative;
+    top: 35px;
+    margin-left: 50px;
+}
+
+.content{
+width: 80%;
+    position: relative;
+    left: 80px;
+    bottom: 20px;
+}
+
+
+a{
+    padding: 0 20px;
+    font-size: 2rem;
+    color: white;
+
+}
+
+.circle{
+    position: absolute;
+    width: 10%;
+    left: 92%;
+    bottom: 45%;
+}
+
+.plus{
+    position: absolute;
+    top: %;
+    right: 90%;
+}
+
+.square{
+    position: absolute;
+    left: 90%;
+    bottom: 55%;
+}
+
+.triangle{
+    position: absolute;
+    bottom: 27%;
+    right: 90%;
+}
+
+.box{
+    position: absolute;
+    left: 85%;
+
+
+}
