@@ -1,80 +1,63 @@
-.main{
-    ;
-}
-h1{
-    margin: 0;
-}
-
-h3{
-    color: #637f83;
-    margin: 0;
+body{
+    background-color: #0d161f;
 }
 
 hr{
-    border-style: solid;
-    height: 10px;
+    margin: 0;
 }
-
-
-.box{
-    background-color: grey;
-    width: 35%;
-    margin: 0 auto;
-    border: solid;
-    position: absolute;
-    left: 10%
+h4,h6{
+    margin: auto;
 }
-
-.box1{
-    background-color: white;
-    width: 35%;
-    margin: 0 auto;
-    border: solid;
-    position: absolute;
-    right: 10%;
-}
-
-
-
 
 .icon{
-    width: 20%;
-    padding: 10px 0 10px 10px;
+    position: relative;
+    top: 35px;
+    margin-left: 50px;
 }
 
 .content{
-
-    width: 70%;
-    position: absolute;
-    top: 5px;
-    left: 100px;
+width: 80%;
+    position: relative;
+    left: 80px;
+    bottom: 20px;
 }
-
-.share{
-    background-color: white;
-    margin: 0 auto;
-    width: 90%;
-    text-align: center;
-    border: solid;
-    box-shadow: 20px;
-    padding: 10px ;
-
-}
-
 
 
 a{
-    color: #637f83;
+    padding: 0 20px;
     font-size: 2rem;
-    margin: 0 1%;
+    color: white;
+
 }
 
-a:hover{
-    color: #204051;
+.circle{
+    position: absolute;
+    width: 10%;
+    left: 92%;
+    bottom: 45%;
 }
 
-.middle{
-    width: 50%;
-    background-color: #637f83;
-    border: solid;
+.plus{
+    position: absolute;
+    top: %;
+    right: 90%;
+}
+
+.square{
+    position: absolute;
+    left: 90%;
+    bottom: 55%;
+}
+
+.triangle{
+    position: absolute;
+    bottom: 27%;
+    right: 90%;
+}
+
+.box{
+    position: absolute;
+    left: 85%;
+
+
 }
