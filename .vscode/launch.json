@@ -9,7 +9,7 @@
             "name": "Python: Django",
             "type": "python",
             "request": "launch",
-            "program": "manage.py",
+            "program": "$C:\Users\Brownie\Desktop\learnlive\eLearning\manage.py",
             "args": [
                 "runserver",
                 "--noreload"
