@@ -2,69 +2,124 @@
 {% load static %}
 
 {% block content %}
+
+<link href="{% static "css/about.css" %}" rel="stylesheet"/>
+<script src= "{% static "js/about.js" %}" type="text/javascript" ></script>
+
+
+
   <!-- About core css -->
-  <link href="{% static "css/about.css" %}" rel="stylesheet"/>
-  {% include 'breadcrumb.html' %}
+ 
+ 
 
+  <body>
 
-  <div class="about_bottom">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 about_left">
-          <h3 class="m_2">A New Team</h3>
-          <ul class="about_grid1 about_box">
-            <li class="about_img"><img src="{% static "img/a1.jpg" %}" class="img-responsive" alt=""/></li>
-            <li class="about_desc">
-              <h5><a href="#">Orange-team</a></h5>
-              <p>e-Learning is online educational site, we aspire for great design, a place to study and share ideas.
-                Our goal is to create solutions that are exploratory, educational and inspirational. Let's work together!
-               Register for free and enjoy countless educational video lectures.</p>
-              <a href="#" class="about_btn">more</a>
-            </li>
-            <div class="clearfix"></div>
-          </ul>
-
-          <ul class="about_grid1">
-            <li class="about_img"><img src="{% static "img/a2.jpg" %}" class="img-responsive" alt=""/></li>
-            <li class="about_desc">
-              <h5><a href="#">Clients & Recognition</a></h5>
-              <p>Founded by extension engine in 2016, e-Learning is an online learning destination and MOOC provider,
-                offering high-quality courses from the world’s best universities and institutions to learners everywhere.
-                With more than 20 global partners, we are proud to count the world’s leading universities, nonprofits,
-                and institutions as our members.</p>
-              <a href="#" class="about_btn">more</a>
-            </li>
-            <div class="clearfix"></div>
-          </ul>
+    <!-- ======= Header ======= -->
+   
+  
+    <main id="main">
+      <!-- ======= Breadcrumbs ======= -->
+      <div class="breadcrumbs" data-aos="fade-in">
+        <div class="container">
+          <h2>About Us</h2>
+          <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p>
         </div>
-
-        <div class="col-md-4">
-          <h3 class="m_2">Investment Focuses</h3>
-          <div class="list styled custom-list">
-            <ul>
-              <li><span class="dropcap">1.</span>
-                <h5><a href="#">Increase access to high-quality education for everyone, everywhere.</a></h5>
-                <p> Our students come from every country in the world! Whether you are interested in computer science,
-                  languages, engineering, psychology, writing, electronics, biology, or marketing, we have the course
-                  for you!
-                </p>
-              </li>
-              <li><span class="dropcap">2.</span>
-                <h5><a href="#">Enhance teaching and learning on campus and online.</a></h5>
-                <p>We always try to improve our services by keeping content up-to-date and motivate our professors to
-                  perform to their fullest. We take our mission of increasing global access to quality education
-                  seriously. We connect learners to the best universities and institutions from around the world.
-                </p>
-              </li>
-            </ul>
+      </div><!-- End Breadcrumbs -->
+  
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row">
+            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+              <img src="{% static "assets/img/about.jpg" %}" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+              <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+              <p class="font-italic">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua.
+              </p>
+              <ul>
+                <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                <li><i class="icofont-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+              </ul>
+              <p>
+                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+              </p>
+  
+            </div>
           </div>
+  
         </div>
-      </div>
-    </div>
-  </div>
-
-
-
+      </section><!-- End About Section -->
+  
+      <!-- ======= Counts Section ======= -->
+   
+<section class="testimonial-section2">
+  <div class="row text-center">
+            <div class="col-12">
+               <div class="h2">Testimonial</div>
+            </div>
+         </div>
+        <div id="testim" class="testim">
+ 
+ <!--         <div class="testim-cover"> -->
+             <div class="wrap">
+ 
+                 <span id="right-arrow" class="arrow right fa fa-chevron-right"></span>
+                 <span id="left-arrow" class="arrow left fa fa-chevron-left "></span>
+                 <ul id="testim-dots" class="dots">
+                     <li class="dot active"></li><!--
+                     --><li class="dot"></li><!--
+                     --><li class="dot"></li><!--
+                     --><li class="dot"></li><!--
+                     --><li class="dot"></li>
+                 </ul>
+                 <div id="testim-content" class="cont">                    
+                     <div class="active">
+                         <div class="img"><img src="https://image.ibb.co/hgy1M7/5a6f718346a28820008b4611_750_562.jpg" alt=""></div>
+                         <div class="h4">Kellie</div>
+                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>                    
+                     </div>
+ 
+                     <div>
+                         <div class="img"><img src="https://image.ibb.co/cNP817/pexels_photo_220453.jpg" alt=""></div>
+                         <div class="h4">Jessica</div>
+                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>                    
+                     </div>
+ 
+                     <div>
+                         <div class="img"><img src="https://image.ibb.co/iN3qES/pexels_photo_324658.jpg" alt=""></div>
+                          <div class="h4">Kellie</div>
+                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>                    
+                     </div>
+ 
+                     <div>
+                         <div class="img"><img src="https://image.ibb.co/kL6AES/Top_SA_Nicky_Oppenheimer.jpg" alt=""></div>
+                         <div class="h4">Jessica</div>
+                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>                    
+                     </div>
+ 
+                     <div>
+                         <div class="img"><img src="https://image.ibb.co/gUPag7/image.jpg" alt=""></div>
+                         <div class="h4">Kellie</div>
+                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>                    
+                     </div>
+ 
+                 </div>
+                  </div>
+             </div>
+ <!--         </div> -->
+     </section>
+     
+ <script src="https://use.fontawesome.com/1744f3f671.js"></script>
+ 
+  
+    </main><!-- End #main -->
+  
+    <!-- ======= Footer ======= -->
 
 
 

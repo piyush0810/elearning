@@ -1,28 +1,35 @@
-<!-- Navigation bar -->
-<section>
-  
 
-  <nav class="header-nav">
-    <ul class="nav navbar-nav-stickytop">
-      <li class="active"><a href="/"><span class="glyphicon glyphicon"></span> <i>   FIND EDUCATE </i>    </a></li>
-      <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+
+
+
+  <!-- ======= Header ======= -->
+
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo mr-auto"><a href="/">GET SKILLS</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+      <li class="active"><a href="/"> Home</a></li>
       {% if request.user.is_authenticated %}
-        <li><a href="{% url 'courses' %}"><span class="glyphicon glyphicon-education"></span> Courses</a></li>
+        <li><a href="{% url 'courses' %}"> Courses</a></li>
       {% else %}
-        <li><a href="/"><span class="glyphicon glyphicon-education"></span> Courses</a></li>
+        <li><a href="/">Courses</a></li>
       {% endif %}
       {% if request.user.is_authenticated %}
-        <li><a href="{% url 'affiliate' %}"><span class="glyphicon glyphicon-record"></span> Affiliate</a></li>
+        <li><a href="{% url 'affiliate' %}"> Affiliate</a></li>
       {% else %}
-        <li><a href="/"><span class="glyphicon glyphicon-record"></span> Affiliate</a></li>
+        <li><a href="/">Affiliate</a></li>
       {% endif %}
-      <li><a href="{% url 'about' %}"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
-      <li><a href="{% url 'contact' %}"><span class="glyphicon glyphicon-earphone"></span> Contact</a></li>
-      .
-      
-<!-- Right align -->
-<ul class="nav navbar-nav navbar-right">
-  {% if request.user.is_authenticated %}
+      <li><a href="{% url 'about' %}"> About</a></li>
+      <li><a href="{% url 'contact' %}"> Contact</a></li>
+      <li class="drop-down"><a href="">Profile</a>
+    
+           
+                <ul>
+                  {% if request.user.is_authenticated %}
     <li><a href="{% url 'profile' %}"><span class="glyphicon glyphicon-user"></span> {{ user.get_username }}</a>
     </li>
     <li><a href="/accounts/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
@@ -30,7 +37,18 @@
     <li><a href="/accounts/register"><span class="glyphicon glyphicon-plus"></span> Sign Up</a></li>
     <li><a href="/accounts/login"><span class="glyphicon glyphicon-user"></span> Log In</a></li>
   {% endif %}
-</ul>
-</ul>
-  </nav>
-</section>
+                </ul>
+           
+
+
+        </ul>
+      </nav><!-- .nav-menu -->
+      {% if request.user.is_authenticated %}
+      <a href="/accounts/logout" class="get-started-btn">Logout</a>
+      <a href="/faq" class="get-started-btn">READ FAQ</a>
+      {% else %}
+      <a href="/accounts/register" class="get-started-btn">Get Started</a> <a><h1></h1></a>
+      <a href="/accounts/login" class="get-started-btn">Login</a>
+      {% endif %}
+    </div>
+ 

@@ -1,0 +1,52 @@
+.ref-link{
+    background-color: #3d9963;
+    padding: 1% 0;
+    font-size: 1.4rem;
+}
+.top-h2{
+    margin: 1% 0 3% 0;
+}
+
+.top-h5{
+margin: 2% 0;
+}
+
+.social{
+    max;
+}
+
+
+.reffereal-share{
+    color: white;
+    font-size: 2rem;
+    padding: 1%;
+}
+
+.reffereal-share:hover{
+    color: #3d9963;
+}
+
+
+.affiliate-icon{
+    font-size: 4rem;
+    color: #5fcf80;
+}
+
+.icon-box1{
+
+}
+
+
+.count-box{
+    border: 1px solid #eef0ef;
+    padding: 5% 5% 3% 5%;
+}
+
+.count-box:hover{
+    border: 1px solid #5fcf80
+}
+
+
+.count-box-outer{
+    padding: 0 5%;
+}
