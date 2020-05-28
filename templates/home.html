@@ -1,159 +1,407 @@
+
+
 {% extends 'base.html' %}
+
+{% include 'navbar.html' %}
 {% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
-
-    <div class="row container-fluid text-center" style="background: #3a3a3a;color: white"><h3
-            style="margin-top: 10px">Registrations are open</h3></div>
+{% include 'announcement.html' %}
     <!----start-banner---->
+    <link href="{% static "assets/img/favicon.png" %}" rel="icon">
+    <link href="{% static "assets/img/apple-touch-icon.png" %}" rel="apple-touch-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+  
 
-    <div id="countdown" class="banner">
-        <div id="overlay">
-            <div class="container"
-                 style="height: 100%;justify-content: center;align-content: center">
-                <div id="content-video" class="row" style="margin-top: 100px">
-                    <div class="col-sm-7 justify-content-center" style="justify-content: center">
-                        <div class="row">
-                            <iframe width="100%" height="400px"
-                                    src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                            </iframe>
-                        </div>
-                    </div>
-                    <div class="col-sm-5 d-flex align-items-center">
-                        <b class="row text-center " style="color:white;font-weight: bolder;display: block;
-                            text-align: center;
-                            font-size: 50px;">THE EVENT STARTS IN!
-                        </b>
+  
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex justify-content-center align-items-center">
+      
+      <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+        
+        <h1 style="font-family: 'Montserrat', sans-serif;">GETSKILLED for getting skills !</h1>
+        <h2>Explore with us</h2>
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'courses' %}" class="btn-get-started"> Courses</a>
+      {% else %}
+   <a href="/accounts/register" class="btn-get-started">Sign up</a>
+      {% endif %}
 
-                        <div class="row text-center" id="demo"
-                             style="position: relative;color: white;font-weight: bold;font-size: 2rem;padding:1vh"></div>
-                        <div class="row text-center ">
-                            <a href="/accounts/register">
-                            <button type="button" class="btn btn1 btn-lg">Register Now</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!------Quote--------->
+      {% if request.user.is_authenticated %}
+      <a href="{% url 'affiliate' %}" class="btn-get-started"> Affiliate</a>
+    {% else %}
+ <a href="/accounts/login" class="btn-get-started">Login</a>
+    {% endif %} 
+
+        
+      </div>
+
+      <svg width="100%" height="300px">
+        <g id="R1" transform="translate(250 250)"> 
+          <ellipse rx="100" ry="0" opacity=".3">
+          <animateTransform attributeName="transform" type="rotate" dur="7s" from="0" to="360" repeatCount="indefinite" />
+          <animate attributeName="cx" dur="8s" values="-20; 220; -20" repeatCount="indefinite" />
+          <animate attributeName="ry" dur="3s" values="10; 60; 10" repeatCount="indefinite" />
+          </ellipse>
+        </g>
+        <use xlink:href="#R1" transform="rotate(72 390 150)" />
+        <use xlink:href="#R1" transform="rotate(144 390 150)" />
+        <use xlink:href="#R1" transform="rotate(216 390 150)" />
+        <use xlink:href="#R1" transform="rotate(288 390 150)" />
+        </svg>
+    </section><!-- End Hero -->
+  
+    <main id="main">
+  
+      <!-- ======= About Section ======= -->
     
-    <div id="about" class="about_background">
-        <div class="container about text-center">
-            <div class="row" id="about-row">
-                <div class="col-sm-6">
-                    <div class="row" style="font-size: 36px;font-weight: bold;color: #e4551d">ABOUT THE SPEAKER</div>
-                    <div class="row" style="font-size: 24px;">lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-                        ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                        lorem
-                        ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                        lorem
-                        ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-                        <ipsum></ipsum>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <img src="{% static  'img/Sandeep-Maheshwari-Motivation-Speaker-In-India-300x218.jpg' %}"
-                         height="218" width="300" alt="image of the speaker">
-                    <div class="row" style="margin: 1vh;font-size: 3vh">SANDEEP MAHESHWARI</div>
-                    <div class="row" style="margin: 1vh;font-size: 2vh">Motivational Speaker</div>
-                    <div class="row" style="margin: 0.5vh;font-size: 1.5vh">Other info</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="quote" style="background-color: #242327">
+      <!-- ======= Counts Section ======= -->
+      <section id="counts" class="counts section-bg">
         <div class="container">
-            <div class="row">
-                <div class="col-8" style="padding-top: 4vh">
-                    <div class="row" style="margin: 2vh">
-                        <div class="blockquote-wrapper">
-                            <div class="blockquote">
-                                <h1>
-                                    Intuitive design happens when <span style="color:#ffffff">current knowledge</span>
-                                    is the same as the <span style="color:#ffffff">target knowledge.</span>
-                                </h1>
-                                <h4>&mdash;Jared Spool<br><em>Web Site Usability: A Designer's Guide</em></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row screen-container">
-                        <div class="screen-body">
-                            <div class="screen-body-item left">
-                                <div class="app-title">
-                                    <span>CONTACT</span>
-                                    <span>US</span>
-                                </div>
-                                <div class="app-contact">CONTACT INFO : +123456789</div>
-                            </div>
-                            <div class="screen-body-item">
-                                <div class="app-form">
-                                    <div class="app-form-group">
-                                        <input class="app-form-control" placeholder="NAME">
-                                    </div>
-                                    <div class="app-form-group">
-                                        <input class="app-form-control" placeholder="EMAIL">
-                                    </div>
-                                    <div class="app-form-group">
-                                        <input class="app-form-control" placeholder="CONTACT NO">
-                                    </div>
-                                    <div class="app-form-group message">
-                                        <input class="app-form-control" placeholder="MESSAGE">
-                                    </div>
-                                    <div class="app-form-group buttons">
-                                        <button class="app-form-button">CANCEL</button>
-                                        <button class="app-form-button">SEND</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  
+          <div class="row counters">
+  
+            <div class="col-lg-3 col-6 text-center">
+              <span data-toggle="counter-up">1440+</span>
+              <p>Students</p>
             </div>
+  
+            <div class="col-lg-3 col-6 text-center">
+              <span data-toggle="counter-up">20+</span>
+              <p>Courses</p>
+            </div>
+  
+            <div class="col-lg-3 col-6 text-center">
+              <span data-toggle="counter-up">20+</span>
+              <p>Events</p>
+            </div>
+  
+            <div class="col-lg-3 col-6 text-center">
+              <span data-toggle="counter-up">100+</span>
+              <p>Trainers</p>
+            </div>
+  
+          </div>
+  
         </div>
+      </section><!-- End Counts Section -->
+     
+      <!-- ======= Why Us Section ======= -->
+      <section id="why-us" class="why-us">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row">
+            <div class="col-lg-4 d-flex align-items-stretch">
+              <div class="content">
+                <h3>Why Choose GET SKILLS?</h3>
+                <h4>
+                  PLAN TODAY TO ENJOY YOUR GOLDEN YEARS. <br><br> WORRY-FREE
+                    GIVE WINGS TO YOUR DREAMS.<br><br>
+                    CHOOSE YOUR GOAL
+                </h4>
+                <div class="text-center">
+                  <a href="{% url 'about' %}" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+              <div class="icon-boxes d-flex flex-column justify-content-center">
+                <div class="row">
+                  <div class="col-xl-4 d-flex align-items-stretch">
+                    <div class="icon-box mt-4 mt-xl-0">
+                      <i class="bx bx-receipt"></i>
+                      <h4>Read Learn and Grasp without limits</h4>
+                      <p>GETSKILLS.in is working towards ensuring your blooming headway.</p>
+                    </div>
+                  </div>
+                  <div class="col-xl-4 d-flex align-items-stretch">
+                    <div class="icon-box mt-4 mt-xl-0">
+                      <i class="bx bx-cube-alt"></i>
+                      <h4>Things must go on</h4>
+                      <p>Its high time to brush up your knowledge.<br> Connect with us.</p>
+                    </div>
+                  </div>
+                  <div class="col-xl-4 d-flex align-items-stretch">
+                    <div class="icon-box mt-4 mt-xl-0">
+                      <i class="bx bx-images"></i>
+                      <h4>Take a moment to plan</h4>
+                      <p>You can reach out to us on our online COURSES/WEBINARS 24*7</p>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- End .content-->
+            </div>
+          </div>
+  
+        </div>
+      </section><!-- End Why Us Section -->
+
+{#    information#}
+    <div style="background-color: #5FACCF; color: #FFFFFF; text-align: center; font-size: 2rem; padding: 5% 8%; line-height: 1.5; margin-bottom: 3%; font-family: 'Lucida Sans'">
+
+It’s a program where we provide hand holding and support at every step of the way to enhance your knowledge and understanding.<br><br>
+No matter what you do, where you live, or whether you work or not, you deserve to know each and everything and should have full access to enhance your knowledge.<br><br>
+Our motive is to provide the best education services to every young and promising mind. and for achieving our target we will be providing  our customers with various courses and webinars which include-
+
+
+
 
     </div>
+  
+      <!-- ======= Features Section ======= -->
+      <section id="features" class="features">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row" data-aos="zoom-in" data-aos-delay="100">
+            <div class="col-lg-3 col-md-4">
+              <div class="icon-box">
+                <i class="ri-calculator-line" style="color: #ffbb2c;"></i>
+                <h3><a href="">Algebra</a></h3>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+              <div class="icon-box">
+                <i class="ri-database-2-line" style="color: #5578ff;"></i>
+                <h3><a href="">Stocks</a></h3>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+              <div class="icon-box">
+                <i class="ri-pencil-ruler-2-line" style="color: #e80368;"></i>
+                <h3><a href="">Maths</a></h3>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+              <div class="icon-box">
+                <i class="ri-robot-line" style="color: #e361ff;"></i>
+                <h3><a href="">Robotics</a></h3>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 mt-4">
+              <div class="icon-box">
+                <i class="ri-calendar-todo-line" style="color: #47aeff;"></i>
+                <h3><a href="">Accounts</a></h3>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 mt-4">
+              <div class="icon-box">
+                <i class="ri-flask-line" style="color: #ffa76e;"></i>
+                <h3><a href="">Science</a></h3>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 mt-4">
+              <div class="icon-box">
+                <i class="ri-bar-chart-box-line" style="color: #11dbcf;"></i>
+                <h3><a href="">Economics</a></h3>
+              </div>
+            </div>
+             <div class="col-lg-3 col-md-4 mt-4">
+                <div class="icon-box">
+                  <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
+                  <h3><a href="">And many other courses available</a></h3>
+                </div>
+              </div>
+{#            <div class="col-lg-3 col-md-4 mt-4">#}
+{#              <div class="icon-box">#}
+{#                <i class="ri-anchor-line" style="color: #b2904f;"></i>#}
+{#                <h3><a href="">Dirada Pack</a></h3>#}
+{#              </div>#}
+{#            </div>#}
+{#            <div class="col-lg-3 col-md-4 mt-4">#}
+{#              <div class="icon-box">#}
+{#                <i class="ri-disc-line" style="color: #b20969;"></i>#}
+{#                <h3><a href="">Moton Ideal</a></h3>#}
+{#              </div>#}
+{#            </div>#}
+{#            <div class="col-lg-3 col-md-4 mt-4">#}
+{#              <div class="icon-box">#}
+{#                <i class="ri-paint-brush-line" style="color: #ff5828;"></i>#}
+{#                <h3><a href="">Verdo Park</a></h3>#}
+{#              </div>#}
+{#            </div>#}
+{#            <div class="col-lg-3 col-md-4 mt-4">#}
+{#              <div class="icon-box">#}
+{#                <i class="ri-fingerprint-line" style="color: #29cc61;"></i>#}
+{#                <h3><a href="">Flavor Nivelanda</a></h3>#}
+{#              </div>#}
+{#            </div>#}
+          </div>
+  
+        </div>
+      </section><!-- End Features Section -->
+  
+      <!-- ======= Popular Courses Section ======= -->
+      <section id="popular-courses" class="courses">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h2>Courses</h2>
+            <p>Popular Courses</p>
+          </div>
+  
+          <div class="row" data-aos="zoom-in" data-aos-delay="100">
+  
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+              <div class="course-item">
+                <img src="{% static "assets/img/course-1.jpg" %}" class="img-fluid" alt="...">
+                <div class="course-content">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <button class="btn btn-primary col-md-4"><b>Web Development</b></
+                    <p class="price">$169</p>
+                  </div>
+  
+                  <h3><a href="course-details.html">Website Design</a></h3>
+                  <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                  <div class="trainer d-flex justify-content-between align-items-center">
+                    <div class="trainer-profile d-flex align-items-center">
+                      <img src="{% static "assets/img/trainers/trainer-1.jpg" %}" class="img-fluid" alt="">
+                      <span>Antonio</span>
+                    </div>
+                    <div class="trainer-rank d-flex align-items-center">
+                      <i class="bx bx-user"></i>&nbsp;50
+                      &nbsp;&nbsp;
+                      <i class="bx bx-heart"></i>&nbsp;65
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- End Course Item-->
+  
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+              <div class="course-item">
+                <img src="{% static "assets/img/course-2.jpg" %}" class="img-fluid" alt="...">
+                <div class="course-content">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <button class="btn btn-primary col-md-4"><b>Marketing</b></button>
+                    <p class="price">$250</p>
+                  </div>
+  
+                  <h3><a href="">Search Engine Optimization</a></h3>
+                  <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                  <div class="trainer d-flex justify-content-between align-items-center">
+                    <div class="trainer-profile d-flex align-items-center">
+                      <img src="{% static "assets/img/trainers/trainer-2.jpg" %}" class="img-fluid" alt="">
+                      <span>Lana</span>
+                    </div>
+                    <div class="trainer-rank d-flex align-items-center">
+                      <i class="bx bx-user"></i>&nbsp;35
+                      &nbsp;&nbsp;
+                      <i class="bx bx-heart"></i>&nbsp;42
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- End Course Item-->
+  
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+              <div class="course-item">
+                <img src="{% static "assets/img/course-3.jpg" %}"  class="img-fluid" alt="...">
+                <div class="course-content">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <button class="btn btn-primary col-md-4"><b>Copywriting</b></button>
+                    <p class="price">$180</p>
+                  </div>
+  
+                  <h3><a href="course-details.html">Copywriting</a></h3>
+                  <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                  <div class="trainer d-flex justify-content-between align-items-center">
+                    <div class="trainer-profile d-flex align-items-center">
+                      <img src="{% static "assets/img/trainers/trainer-3.jpg" %}" class="img-fluid" alt="">
+                      <span>Brandon</span>
+                    </div>
+                    <div class="trainer-rank d-flex align-items-center">
+                      <i class="bx bx-user"></i>&nbsp;20
+                      &nbsp;&nbsp;
+                      <i class="bx bx-heart"></i>&nbsp;85
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- End Course Item-->
+  
+          </div>
+  
+        </div>
+      </section><!-- End Popular Courses Section -->
+  
+      <!-- ======= Trainers Section ======= -->
+      <section id="trainers" class="trainers">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h2>Trainers</h2>
+            <p>Our Professional Trainers</p>
+          </div>
+  
+          <div class="row" data-aos="zoom-in" data-aos-delay="100">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+              <div class="member">
+                <img src="{% static "assets/img/trainers/trainer-1.jpg" %}" class="img-fluid" alt="">
+                <div class="member-content">
+                  <h4>Walter White</h4>
+                  <span>Web Development</span>
+                  <p>
+                    Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
+                  </p>
+                  <div class="social">
+                    <a href=""><i class="icofont-twitter"></i></a>
+                    <a href=""><i class="icofont-facebook"></i></a>
+                    <a href=""><i class="icofont-instagram"></i></a>
+                    <a href=""><i class="icofont-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+              <div class="member">
+                <img src="{% static "assets/img/trainers/trainer-2.jpg" %}" class="img-fluid" alt="">
+                <div class="member-content">
+                  <h4>Sarah Jhinson</h4>
+                  <span>Marketing</span>
+                  <p>
+                    Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
+                  </p>
+                  <div class="social">
+                    <a href=""><i class="icofont-twitter"></i></a>
+                    <a href=""><i class="icofont-facebook"></i></a>
+                    <a href=""><i class="icofont-instagram"></i></a>
+                    <a href=""><i class="icofont-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+              <div class="member">
+                <img src="{% static "assets/img/trainers/trainer-3.jpg" %}" class="img-fluid" alt="">
+                <div class="member-content">
+                  <h4>William Anderson</h4>
+                  <span>Content</span>
+                  <p>
+                    Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
+                  </p>
+                  <div class="social">
+                    <a href=""><i class="icofont-twitter"></i></a>
+                    <a href=""><i class="icofont-facebook"></i></a>
+                    <a href=""><i class="icofont-instagram"></i></a>
+                    <a href=""><i class="icofont-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+          </div>
 
 
+  
+        </div>
+      </section><!-- End Trainers Section -->
+  
+
+  
+    <!-- ======= Footer ======= -->
+  
 
 
-    <script>
-        document.getElementById("countdown").setAttribute("style", "min-height:" + (window.innerHeight - 140) + "px")
-        document.getElementById("overlay").setAttribute("style", "min-height:" + (window.innerHeight - 140) + "px;background-color:rgba(0, 0, 0, 0.5)")
-        document.getElementById("about").setAttribute("style", "min-height:" + (window.innerHeight) + "px")
-        document.getElementById("about-row").setAttribute("style", "margin-top:" + (window.innerHeight / 3.5) + "px")
-
-        var countDownDate = new Date("Jan 5, 2021 ").getTime();
-
-        // Update the count down every 1 second
-        var x = setInterval(function () {
-
-            // Get today's date and time
-            var now = new Date().getTime();
-
-            // Find the distance between now and the count down date
-            var distance = countDownDate - now;
-
-            // Time calculations for days, hours, minutes and seconds
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Display the result in the element with id="demo"
-            document.getElementById("demo").innerHTML = " <span class='countdown'>" + days + " d " + "</span>" +
-                " <span class='countdown'>" + hours + " h " + "</span>" +
-                " <span class='countdown'>" + minutes + " m " + "</span>" +
-                " <span class='countdown'>" + seconds + " s " + "</span>";
-
-            // If the count down is finished, write some text
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("demo").innerHTML = "EXPIRED";
-            }
-        }, 1000);
-    </script>
 {% endblock %}
-
