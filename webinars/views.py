@@ -7,6 +7,16 @@ from pinax.referrals.models import Referral
 from .models import Comment
 from django.template.loader import render_to_string
 
+# @login_required
+# def session_quiz(request,webinar_name,slug=none):
+#     user=request.user
+#     webinar = Webinar.objects.get(webinar_name=webinar_name)
+#     session_list = Session.objects.filter(webinar=webinar)
+#     session = Session.objects.get(webinar__webinar_name=webinar_name, slug=slug)
+#     quiz = Quiz.objects.filter(session=session)
+
+    
+
 @login_required
 def webinars(request):
     user=request.user
@@ -194,7 +204,7 @@ def session(request, webinar_name=None, slug=None):
         return redirect(reverse('session', kwargs={'webinar_name': webinar_name,
                                                    'slug': slug}))
 
-    return render(request, "webinars/Session.html", context)
+    return render(request, "webinars/session.html", context)
 
 
 @user_passes_test(lambda user: user.is_professor)

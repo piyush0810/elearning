@@ -8,6 +8,8 @@ from django.urls import reverse
 from django.db.models.signals import pre_save
 from django.utils.text import slugify
 from django.dispatch import receiver
+from six import python_2_unicode_compatible
+from django.utils.translation import ugettext as _
 
 # Create your models here.
 class Webinar(models.Model):
@@ -101,6 +103,50 @@ class Comment(models.Model):
 
     def __str__(self):
         return '{}-{}'.format(self.post.session_name, str(self.user.username))
+
+# class Quiz(models.Model):
+#     quiz_name = models.CharField(max_length=20)
+#     quiz_created_date = models.DateTimeField(auto_now_add=True)
+#     session = models.ForeignKey(Session, on_delete=models.CASCADE, default=1)
+#     marks = models.IntegerField(max_length=10)
+#     marks_to_show = models.BooleanField(blank=False,default=False)
+#     user=models.ForeignKey(UserProfile ,on_delete=models.CASCADE)
+
+
+# @python_2_unicode_compatible
+# class Question(models.Model):
+#     content = models.CharField(max_length=1000,
+#                                blank=False,
+#                                help_text=_("Enter the question text that "
+#                                            "you want displayed"),
+#                                verbose_name=_('Question'))
+#     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, default=1)                           
+
+#     attempted = models.BooleanField(blank=False,default=False)
+#     def __str__(self):
+#         return self.content
+
+
+
+# @python_2_unicode_compatible
+# class Answer(models.Model):
+#     question = models.ForeignKey(Question)
+
+#     content = models.CharField(max_length=1000,
+#                                blank=False,
+#                                help_text=_("Enter the answer text that "
+#                                            "you want displayed"),
+#                                verbose_name=_("Content"))
+
+#     correct = models.BooleanField(blank=False,
+#                                   default=False,
+#                                   help_text=_("Is this a correct answer?"),
+#                                   verbose_name=_("Correct"))
+
+#     def __str__(self):
+#         return self.content
+
+
 
 
 @receiver(models.signals.post_delete, sender=FileUploadW)
