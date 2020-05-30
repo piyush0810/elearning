@@ -1,0 +1,45 @@
+
+{% block cbox_model %}
+  {% load staticfiles %}
+    <link href="{% static "css/webinar.css" %}" rel="stylesheet"/>
+    <div class="container" data-aos="fade-up"></div>
+  <section id="courses" class="courses">
+    <div class="row" data-aos="zoom-in" data-aos-delay="100">
+        {% if queryset %}
+          {% for instance in queryset %}
+          <div class=" col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+            <div class="course-item">
+              <img src="{%static "assets/img/course-1.jpg"%}" class="img-fluid" alt="...">
+              <div class=" course-content">
+                <div class=" d-flex justify-content-between align-items-center mb-3">	
+                  <h4 >Mathematics</h4>
+                  <p class="price">$169</p>
+                </div>
+                <h3>
+                  {% if instance in queryset2%}
+                    <a href="{% url 'webinar_homepage' instance.webinar_name %} ">
+                  {% else%}
+                    <a href="{% url 'charge_webinar' instance.webinar_name %}">
+                  {% endif %}  
+                  {{ instance.webinar_name }}
+                  </a>
+                </h3>
+                <p>{{instance.text }}</p>
+                <div class="trainer d-flex justify-content-between align-items-center ">
+                  <div class="trainer-profile d-flex align-items-center">
+                    <img src="{% static "assets/img/trainers/trainer-1.jpg"%}" class="img-fluid" alt="">
+                    <span>Author: {{ instance.user }}</span>
+                  </div>
+          
+                </div>
+              </div>
+              
+            </div>
+          </div> <!-- End Course Item-->
+          {% endfor %}
+              {% endif %}
+  </div>
+      </div></section>
+  
+{% endblock %}
+  

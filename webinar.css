@@ -1,0 +1,65 @@
+.courses .course-item {
+    border-radius: 5px;
+    border: 3px solid #271066;
+    margin: 40px;
+  }
+  .courses .course-content {
+    padding: 15px;
+  }
+  
+  .courses .course-content h3 {
+    font-weight: 700;
+    font-size: 25px;
+  }
+  
+  .courses .course-content h3 a {
+    color:#00909e;
+    transition: 0.3s;
+  }
+  
+  .courses .course-content h3 a:hover {
+    color: #142850;
+  }
+  
+  .courses .course-content p {
+    font-size: 17px;
+    color: #F7F7F7;
+    font-weight:600;
+  }
+  
+  .courses .course-content h4 {
+    font-size: 15px;
+    background: #5faccf;
+    padding: 7px 14px;
+    color:#F5F5F5;
+    margin: 0;
+    border-radius: 5px;
+    font-weight:600;
+    
+  }
+  
+  .courses .course-content .price {
+    margin-left: 70px;
+    font-weight: 700;
+    font-size: 18px;
+    color: #00909e;
+  }
+  
+  .courses .trainer {
+    padding-top: 15px;
+    border-top: 2px solid #271066;
+    font-weight:600;
+  }
+  
+  .courses .trainer .trainer-profile img {
+    max-width: 50px;
+    border-radius: 50px;
+  }
+  
+  .courses .trainer .trainer-profile span {
+    padding-left: 20px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #142850;
+  }
+  
