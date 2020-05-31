@@ -26,7 +26,7 @@ def webinars(request):
     if request.user.is_site_admin:
         queryset = Webinar.objects.all()
     else:
-        queryset = Webinar.objects.filter(for_everybody=True )
+        queryset = Webinar.objects.filter(for_everybody_webinar=True )
         queryset2 = Webinar.objects.filter(students=user)
         
 
@@ -269,9 +269,9 @@ def update_webinar(request, webinar_name=None):
         webinar_name = update_webinar_form.cleaned_data.get("webinar_name")
         instance = update_webinar_form.save(commit=False)
     
-        instance.text = update_webinar_form.cleaned_data.get("text")
-        key = update_webinar_form.cleaned_data.get("link")
-
+        instance.text = update_webinar_form.cleaned_data.get("text_webinar")
+        key = update_webinar_form.cleaned_data.get("link_webinar")
+        print(key)
         if 'embed' not in key and 'youtube' in key:
             key = key.split('=')[1]
             instance.link = 'https://www.youtube.com/embed/' + key

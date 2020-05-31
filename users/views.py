@@ -20,6 +20,13 @@ import json
 
 import logging
 
+import smtplib
+from django.core.mail import EmailMessage
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase 
+from email import encoders 
+
 logger = logging.getLogger(__name__)
 
 
@@ -55,6 +62,59 @@ def faq(request):
     # print(tutorial) 
     return render(request, "users/faq.html", context)   
 
+def contact_as_instructor(request):
+    contact_form = Contact_as_Instructor(request.POST or None)
+
+    context = {
+        "title": "Contact",
+        "contact_form": contact_form,
+    }
+
+    if contact_form.is_valid():
+
+        sender = contact_form.cleaned_data.get("sender")
+        sop = contact_form.cleaned_data.get("sop")
+        from_email = contact_form.cleaned_data.get("email")
+        title = contact_form.cleaned_data.get("title")
+        
+        
+        message = contact_form.cleaned_data.get("message")
+
+        message = 'Sender:  ' + sender + '\nFrom:  ' + from_email + '\n\nSOP'+ sop + '\n\ntitle' + title
+        # send_mail("apply as instructor", message, settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER], fail_silently=False)
+        
+        
+        
+        
+        
+        
+        success_message = "We appreciate you contacting us, one of our Customer Service colleagues will get back" \
+                          " to you within a 24 hours."
+        messages.success(request, success_message)
+
+        
+
+
+        msg = MIMEMultipart() 
+        msg['Subject'] = "Apply as an Instructor"
+        msg['From'] = settings.EMAIL_HOST_USER
+        msg['To'] = settings.EMAIL_HOST_USER
+
+        msg.attach(MIMEText(message, 'plain')) 
+
+        
+        # Create server object with SSL option
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        # Perform operations via server
+        server.login('contact.getskills@gmail.com', 'getskills1.0')
+
+        server.sendmail(settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER], msg.as_string())
+        server.quit()
+
+        return redirect(reverse('contact_as_instructor'))
+
+    return render(request, "users/contact_as_instructor.html", context)
 
 
 def contact(request):
@@ -66,15 +126,33 @@ def contact(request):
     }
 
     if contact_form.is_valid():
+
         sender = contact_form.cleaned_data.get("sender")
         subject = contact_form.cleaned_data.get("subject")
         from_email = contact_form.cleaned_data.get("email")
         message = contact_form.cleaned_data.get("message")
         message = 'Sender:  ' + sender + '\nFrom:  ' + from_email + '\n\n' + message
-        send_mail(subject, message, settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER], fail_silently=True)
+        # send_mail(subject, message, settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER], fail_silently=False)
         success_message = "We appreciate you contacting us, one of our Customer Service colleagues will get back" \
                           " to you within a 24 hours."
         messages.success(request, success_message)
+
+        
+
+
+        msg = MIMEText(message)
+        msg['Subject'] = subject
+        msg['From'] = settings.EMAIL_HOST_USER
+        msg['To'] = settings.EMAIL_HOST_USER
+
+        # Create server object with SSL option
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        # Perform operations via server
+        server.login('contact.getskills@gmail.com', 'getskills1.0')
+
+        server.sendmail(settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER], msg.as_string())
+        server.quit()
 
         return redirect(reverse('contact'))
 
@@ -117,17 +195,14 @@ def charged_course(request,course_name):
 @login_required
 def charged_webinar(request,webinar_name):
     razorpay_client = razorpay.Client(auth=("rzp_test_6ChBFF3DEQamI8", "RIn69McAqs35zFjHZOB0jqjM"))
-    amount = 50000
     payment_id = request.POST['razorpay_payment_id']
-    razorpay_client.payment.capture(payment_id, amount)
+    # razorpay_client.payment.capture(payment_id, amount)
     c=Webinar.objects.get(webinar_name=webinar_name)
     c.students.set([request.user])
     c.save()
     user=request.user
     if user.parent:
         user.parent.affamount=user.parent.affamount+1
-        print(user.parent)
-        print(user.parent.affamount)
         user.parent.save()
 
     return redirect('profile')
@@ -166,7 +241,8 @@ def charge_course(request,course_name):
             "user":user,
             "course":course_name,
             "intro":q,
-            "text": q.text
+            "text": q.text,
+            "queryset":c
             }
     
     return render(request, "courses/charge.html",context)
@@ -181,9 +257,10 @@ def charge_webinar(request,webinar_name):
     context = {
            "title": webinar_name,
             "user":user,
-            "course":webinar_name,
+            "webinar":webinar_name,
             "intro":q,
-            "text": q.text
+            "text": q.text_webinar,
+            "queryset":q
             }
     
     return render(request, "webinars/charge.html",context)
@@ -247,17 +324,17 @@ def professor(request):
 
     if add_webinar_form.is_valid():
         webinar_name = add_webinar_form.cleaned_data.get("webinar_name")
-        instance = add_webinar_form.save(commit=False)
-        instance.user = request.user
-        instance.text = add_webinar_form.cleaned_data.get("text")
-        key = add_webinar_form.cleaned_data.get("link")
+        inst = add_webinar_form.save(commit=False)
+        inst.user = request.user
+        inst.text_webinar = add_webinar_form.cleaned_data.get("text_webinar")
+        key = add_webinar_form.cleaned_data.get("link_webinar")
 
         if 'embed' not in key and 'youtube' in key:
             key = key.split('=')[1]
-            instance.link = 'https://www.youtube.com/embed/' + key
+            inst.link = 'https://www.youtube.com/embed/' + key
 
         
-        instance.save()
+        inst.save()
         return redirect(reverse('professor_webinar', kwargs={'webinar_name': webinar_name}))
 
 
@@ -325,7 +402,7 @@ def course_homepage(request, course_name):
         if i.course_name == course_name:
             return redirect(reverse(student_course, kwargs={'course_name': course_name, "slug": chapter_list[0].slug}))
     if chapter_list:
-        return redirect( reverse("charge_course") )
+        return redirect( reverse(charge_course,kwargs={'course_name': course_name} ))
         # reverse(student_course, kwargs={'course_name': course_name, "slug": chapter_list[0].slug})
     else:
         warning_message = "Currently there are no videos for this course "
@@ -338,8 +415,8 @@ def webinar_homepage(request, webinar_name):
     for i in Webinar.objects.filter(students=request.user):
         if i.webinar_name == webinar_name:
             return redirect(reverse(student_webinar, kwargs={'webinar_name': webinar_name, "slug": session_list[0].slug}))
-    if chapter_list:
-        return redirect( reverse("charge_webinar") )
+    if session_list:
+        return redirect( reverse(charge_webinar, kwargs={'webinar_name': webinar_name}) )
         # reverse(student_course, kwargs={'course_name': course_name, "slug": chapter_list[0].slug})
     else:
         warning_message = "Currently there are no videos for this webinar "

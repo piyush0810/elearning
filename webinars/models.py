@@ -14,14 +14,17 @@ from django.utils.translation import ugettext as _
 # Create your models here.
 class Webinar(models.Model):
     webinar_name = models.CharField(unique=True, max_length=20)
+    webinar_author_name = models.CharField(max_length=20,default=" ")
     webinar_created_date = models.DateTimeField(auto_now_add=True)
-    text = models.TextField(default=None,null=True)
-    link = models.URLField(default=None,null=True,blank=True)
+    text_webinar = models.TextField(default=None,null=True)
+    link_webinar = models.URLField(default=None,null=True,blank=True)
     user = models.ForeignKey(UserProfile,on_delete=models.CASCADE, default=1)
     # students = models.ManyToManyField(UserProfile, related_name='students_to_course')
+    cost_webinar=models.IntegerField(null=True,default=0)
+    image_webinar=models.IntegerField(null=True,default=0)
     students = models.ManyToManyField(UserProfile,through="join", related_name='students_to_webinars')
 
-    for_everybody = models.BooleanField(default=True)
+    for_everybody_webinar = models.BooleanField(default=True)
     def __unicode__(self):
         return self.course_name
 

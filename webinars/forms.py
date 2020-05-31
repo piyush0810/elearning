@@ -6,7 +6,7 @@ import re
 class AddWebinarForm(forms.ModelForm):
     class Meta:
         model = Webinar
-        fields = ['webinar_name', 'for_everybody','text','link']
+        fields = ['webinar_name', 'for_everybody_webinar','text_webinar','link_webinar','image_webinar','webinar_author_name','cost_webinar']
 
     def clean_webinar_name(self):
         webinar_name = self.cleaned_data.get('webinar_name')
@@ -57,7 +57,7 @@ class AddGDLinkForm(forms.ModelForm):
 class EditWebinarForm(forms.ModelForm):
     class Meta:
         model = Webinar
-        fields = ['webinar_name', 'for_everybody','text','link']
+        fields = ['webinar_name', 'for_everybody_webinar','text_webinar','link_webinar','image_webinar','cost_webinar']
 
 
 class EditSessionForm(forms.ModelForm):
