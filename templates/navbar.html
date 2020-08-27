@@ -1,7 +1,9 @@
 {% comment %} {%load static%}
 
+
 <!-- Navigation bar -->
  <link href="{% static "css/navbar.css" %}" rel="stylesheet"/> 
+
 <nav class="navbar" role="navigation">
   <div class="container-fluid">
 
@@ -85,57 +87,210 @@ function scrollFunction() {
 </script> {% endcomment %}
 
 {%load static%}
+<link href="{% static "css/navbar.css" %}" rel="stylesheet"/> 
 
 
+<header id='header' class='fixed-top'>
 
+  <div class='d-flex'>
+  
+     
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
 
     <nav id="nav" class="nav-menu navbar-light navbar-float d-none d-lg-block affix">
+       
       
-        <div class="logo"><a href="/">GET SKILLS</a></div>
-          <ul>
-            <li><a href="/"> Home</a></li>
-              {% if request.user.is_authenticated %}
-                <li><a href="{% url 'courses' %}"> Courses</a></li>
-              {% else %}
-                <li><a href="/">Courses</a></li>
-              {% endif %}
-              {% if request.user.is_authenticated %}
-                <li><a href="{% url 'webinars' %}"> Webinars</a></li>
-              {% else %}
-                <li><a href="/">Webinars</a></li>
-              {% endif %}
-              {% if request.user.is_authenticated %}
-                <li><a href="{% url 'affiliate' %}"> Affiliate</a></li>
-              {% else %}
-                <li><a href="/">Affiliate</a></li>
-              {% endif %}
-            <li><a href="{% url 'about' %}"> About</a></li>
-            <li><a href="{% url 'contact' %}"> Contact</a></li>
-              {% if request.user.is_authenticated %}
-                <li class="drop-down"><a href="">Profile</a>
-                  <ul>
-                    <li><a href="{% url 'profile' %}"><span class="glyphicon glyphicon-user"></span> {{ user.get_username }}</a></li>
-                    <li><a href="/accounts/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-                  </ul>
-              {% endif %}
-          </ul>
-          <ul>
-            {% if request.user.is_authenticated %}
-              <li><a href="/accounts/logout" class="get-started-btn">Logout</a></li>
-              <li><a href="/faq" class="get-started-btn">READ FAQ</a></li>
+      <ul class='d-flex'>
+
+       
+      <h1 class="logo mr-auto"><a href="/">GET SKILLS</a></h1>
+      
+      {% if request.user.is_authenticated %}
+            <li><a class='apea ' href="/"> Home</a></li>
             {% else %}
-              <li><a class="get-started-btn" href="/accounts/register" >Get Started</a> <a><h1></h1></a></li>
-              <li><a class="get-started-btn" href="/accounts/login" >Login</a></li>
-              <li><a class="get-started-btn" href="{% url 'contact_as_instructor' %}" >Apply As Instructor</a></li>
+            <li><a id="one" class='ape' href="/"> Home</a></li>
             {% endif %}
+              {% if request.user.is_authenticated %}
+                <li><a class='apea' href="{% url 'courses' %}"> Courses</a></li>
+              {% else %}
+                <li><a id="three" class='ape' href="/" onclick="openNaa()" ondblclick=closeNaa()>Courses</a></li>
+                
+                
+              {% endif %}
+              {% if request.user.is_authenticated %}
+                <li><a class="apea" href="{% url 'webinars' %}" > Webinars</a></li>
+              {% else %}
+                <li><a id="four" class="ape" href="/" onclick="openweb()" ondblclick=closeweb()>Webinars</a></li>
+              {% endif %}
+              {% if request.user.is_authenticated %}
+                <li><a class="apea" href="{% url 'affiliate' %}"> Affiliate</a></li>
+              {% else %}
+                <li><a id='five' class="ape" href="/">Affiliate</a></li>
+              {% endif %}
+              {% if request.user.is_authenticated %}
+
+            <li><a class="apea" href="{% url 'about' %}"> About</a></li>
+           {%else%}
+            <li><a id='six' class="ape" href="{% url 'about' %}"> About</a></li>
+            {% endif %}
+            {% if request.user.is_authenticated %}
+            <li><a class="apea" href="{% url 'contact' %}"> Contact</a></li>
+            {% else %}
+            <li><a id='seven' class="ape" href="{% url 'contact' %}"> Contact</a></li>
+            {% endif %}  
+            {% if request.user.is_authenticated %}
+
+                <li><a class="apea" href="" onclick=openprof() ondblclick=closeprof() >Profile</a>
+                    
+    
+              {% endif %}
+        
+          
+            {% if request.user.is_authenticated %}
+              <li ><a  href="/accounts/logout" class="get-started-btn-scrolled"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+              <li><a href="/faq" class="get-started-btn-scrolled">READ FAQ</a></li>
+            {% else %}
+
+
+           
+              <li><a id="hope" class="get-started-btn get-started-btn-scrolled" href="#" >Register</a> </li>
+             <li><a id="login"class="get-started-btn get-started-btn-scrolled" href="#" >Login</a></li>
+              
+             
+            {% endif %}
+
+
+          
           </ul>
       </nav>
+
+      <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+          
+       
+            <h1 class="logo mr-auto"><a href="/">GET SKILLS</a></h1>
+            
+        
+            {% if request.user.is_authenticated %}
+                  <a  href="/"> Home</a>
+                  {% else %}
+                  <a href="/"> Home</a>
+                  {% endif %}
+                    {% if request.user.is_authenticated %}
+                      <li><a  href="{% url 'courses' %}"> Courses</a></li>
+                    {% else %}
+                      <li><a  href="/">Courses</a></li>
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                      <li><a  href="{% url 'webinars' %}"> Webinars</a></li>
+                    {% else %}
+                      <a href="/">Webinars</a>
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                   <a  href="{% url 'affiliate' %}"> Affiliate</a>
+                    {% else %}
+                      <a  href="/">Affiliate</a>
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+      
+                  <a  href="{% url 'about' %}"> About</a>
+                 {%else%}
+                 <a   href="{% url 'about' %}"> About</a>
+                  {% endif %}
+                  {% if request.user.is_authenticated %}
+                  <a  href="{% url 'contact' %}"> Contact</a>
+                  {% else %}
+                  <a  href="{% url 'contact' %}"> Contact</a>
+                  {% endif %}  
+                  {% if request.user.is_authenticated %}
+      
+                      <li><a  href="">Profile</a></li>
+      
+                      <li><a class="apea" href="{% url 'profile' %}">{{ user.get_username }}</a></li>
+
+                    {% endif %}
+              
+                
+                  {% if request.user.is_authenticated %}
+                    <a  href="/accounts/logout" class="get-started-btn-scrolled"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+                  <a href="/faq" class="get-started-btn-scrolled">READ FAQ</a>
+                  {% else %}
+                   <a class="" href="/accounts/register" >Register</a> 
+                   <a class="" href="/accounts/login" >Login</a>
+                   
+                  {% endif %}
+      
+      
+                
+                </ul>
+        </div>
+      </div>
+
+
+     
+
+            
+      <div id="myNa" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNaa()">&times;</a>
+        <div class="overlay-content">
+          <a href="#">Robotics</a>
+          <a href="#">Maths</a>
+          <a href="#">Science</a>
+          <a href="/accounts/logout">Logout</a>
+        </div>
+      </div>
+
+      
+
+
+
+
+
+
+               
+      <div id="webinars" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeweb()">&times;</a>
+        <div class="overlay-content">
+          <a href="#">Robowebinar</a>
+          <a href="#">Mathswebinar</a>
+          <a href="#">Sciencewebinar</a>
+          <a href="#">Join</a>
+        </div>
+      </div>
+      
+
+      <div id="prof" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeprof()">&times;</a>
+        <div class="overlay-content">
+
+<a  href="{% url 'profile' %}"> {{ user.get_username }}</a>
+
+
+          <a href="/accounts/logout">Logout</a>
+         
+        </div>
+      </div>
+      
+       
+
+
+
+
+       
+      </div>
     
-    
+
+      </div>
+  </header>
+
+
  
 
-
 <script>
+
+
+   
 // When the user scrolls down 20px from the top of the document, slide down the navbar
 window.onscroll = function() {
   scrollFunction();
@@ -153,7 +308,19 @@ function scrollFunction() {
         
     //}
       document.getElementById("nav").classList.add("nav-scrolled");
-      console.log(document.getElementById("nav").classList)
+      document.getElementById("hope").classList.add("get-started-btn-scrolled");
+
+      document.getElementById("one").classList.add("apea");
+      document.getElementById("three").classList.add("apea");
+      document.getElementById("four").classList.add("apea");
+      document.getElementById("five").classList.add("apea");
+      document.getElementById("six").classList.add("apea");
+      document.getElementById("seven").classList.add("apea");
+      document.getElementById("hope").classList.remove("get-started-btn");
+      document.getElementById("login").classList.remove("get-started-btn");
+     
+      console.log(document.getElementById("nav").classList);
+      document.getElementById("login").classList.add("get-started-btn-scrolled");
     
   } else {
     
@@ -163,12 +330,116 @@ function scrollFunction() {
         
     //}
     console.log("hi")
-    document.getElementById("nav").classList.remove("nav-scrolled");
-    console.log(document.getElementById("nav").classList)
 
+    document.getElementById("one").classList.add("ape");
+    document.getElementById("three").classList.add("ape");
+    document.getElementById("four").classList.add("ape");
+    document.getElementById("five").classList.add("ape");
+    document.getElementById("six").classList.add("ape");
+    document.getElementById("seven").classList.add("ape");
+    document.getElementById("nav").classList.remove("nav-scrolled");
+    document.getElementById("hope").classList.remove("get-started-btn-scrolled");
+
+    document.getElementById("one").classList.remove("apea");
+    document.getElementById("three").classList.remove("apea");
+    document.getElementById("four").classList.remove("apea");
+    document.getElementById("five").classList.remove("apea");
+    document.getElementById("six").classList.remove("apea");
+    document.getElementById("seven").classList.remove("apea");
+    console.log(document.getElementById("nav").classList);
+    document.getElementById("login").classList.remove("get-started-btn-scrolled");
+
+    document.getElementById("hope").classList.add("get-started-btn");
+      document.getElementById("login").classList.add("get-started-btn");
+     
     
     
     
   }
 }
+
+
+
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+function openNaa() {
+  document.getElementById("myNa").style.width = "55%";
+}
+
+function closeNaa() {
+  document.getElementById("myNa").style.width = "0%";
+}
+
+function openweb() {
+  document.getElementById("webinars").style.width = "65%";
+}
+
+function closeweb() {
+  document.getElementById("webinars").style.width = "0%";
+}
+
+
+
+function openget() {
+  document.getElementById("Getstarted").style.height = "75%";
+
+
+}
+
+function closeget() {
+  document.getElementById("Getstarted").style.height = "0%";
+}
+function openprof() {
+  document.getElementById("prof").style.width = "100%";
+}
+
+function closeprof() {
+  document.getElementById("prof").style.width = "0%";
+}
+
+function openForm() {
+        document.getElementById("loginPopup").style.display="block";
+      }
+      
+      function closeForm() {
+        document.getElementById("loginPopup").style.display= "none";
+      }
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        var modal = document.getElementById('loginPopup');
+        if (event.target == modal) {
+          closeForm();
+        }
+      }
+
+      function check_empty() {
+if (document.getElementById('name').value == "" || document.getElementById('email').value == "" || document.getElementById('msg').value == "") {
+alert("Fill All Fields !");
+} else {
+document.getElementById('form').submit();
+alert("Form Submitted Successfully...");
+}
+}
+//Function To Display Popup
+function div_show() {
+document.getElementById('abc').style.display = "block";
+}
+//Function to Hide Popup
+function div_hide(){
+document.getElementById('abc').style.display = "none";
+}
+
+
+
+     
 </script> 
+
+
+
+
+

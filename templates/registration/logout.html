@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 {% load i18n %}
-
+{% load static %}
 {% block content %}
-  <div class="container" style="text-align: center">
+  <link href="{% static 'css/login.css' %}" rel="stylesheet">
+  <div class="container logout" style="text-align: center">
     <h3>You have successfully logged out.</h3>
-    <br>
-    <br><br><br><br><br><br><br><br>
     <p><a href="{% url 'auth_login' %}">Login</a></p>
   </div>
 {% endblock %}

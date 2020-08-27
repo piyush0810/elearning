@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
   <title>{{ title }}</title>
   {% include 'head_css.html' %}
 </head>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"/>
 <body>
 {% include 'javascript.html' %}
 <!-- Wrap all page content here -->
@@ -22,6 +25,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<script src= "https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
+
+
 <script type="text/javascript">
   $(document).ready(function(event){
     $('.reply-btn').click(function() {
@@ -103,38 +111,56 @@
 
   </div>
 </footer> {% endcomment %}
-<footer id="footer">
-  <div class="container social-links text-center text-md-center ">
-  
-    <div class="row">
-      <div class="col-sm">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-      <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-      <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-  
-      <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-  
-      </div>
-      <div class="col-sm">
-        LOGO COMES  here
-    
-      </div>
-      <div class="col-sm">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-    
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-    
-      </div>
-    </div>
+<footer class="footer-distributed">
+ 
+  <div class="footer-left">
+      <img src="img/logo.png">
+    <h3>Get<span>Skills</span></h3>
 
+    
 
+    <p class="footer-company-name">© 2020 GETSKILLS All rights reserved</p>
   </div>
 
-  
+  <div class="footer-center">
+    <div>
+      
+        <p class="footer-company-about">
+          <span><b>Contact Information</b></span></p></p>
+    </div>
+
+    <div>
+      <i class="fa fa-phone"  style="color: #ffffff"></i>
+
+      <p>
+        +91 6377 524 778<br>
+            +91 9588 879 579<br>
+            +91 9878 354 583<br>
+      </p>
+    </div>
+    <div>
+      <i class="fa fa-envelope" style="color: #ffffff"></i>
+      <p><a href="maito:contact.getskills@gmail.com">team@getskills.in</a><br>
+       <a href="mailto:contact.getskills@gmail.com">contact.getskills@gmail.com</a></p>
+    </div>
+  </div>
+  <div class="footer-right">
+    <p class="footer-company-about">
+      <span>About the company</span>
+      We offer skill building courses across Technology, Design, Management, Science and Humanities.</p>
+    <div class="footer-icons">
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      
+
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+      <a href="#"><i class="fa fa-linkedin"></i></a>
+     
+    </div>
+  </div>
 </footer>
 
 
 </body>
+
 </html>
