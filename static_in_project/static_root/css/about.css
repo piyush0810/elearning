@@ -1,138 +1,53 @@
-/*--about-bottom-*/
-h3.m_2 {
-    font-size: 1.7em;
-    font-weight: bold;
-    color: #637f83;
-    margin-bottom: 1em;
-}
-
-.about_bottom {
-    margin-top: 25px;
-    margin-bottom: 45px;
-}
-
-ul.about_grid1 {
-    padding: 0;
-    list-style: none;
-}
-
-ul.about_grid1 li.about_img {
-    float: left;
-    width: 32.333%;
-    margin-right: 1.5em;
-}
-
-ul.about_grid1 li.about_desc {
-    float: left;
-    width: 63.777%;
-}
-
-ul.about_grid1 li.about_desc h5 a {
-    color: #555;
-    font-size: 1.2em;
-}
-
-ul.about_grid1 li.about_desc h5 a:hover {
-    color: #e4551d;
-    text-decoration: none;
-}
-
-ul.about_grid1 li.about_desc p {
-    color: #999;
-    font-size: 0.85em;
-    line-height: 1.5em;
-    margin-bottom: 2em;
-}
-
-a.about_btn {
-    background: url(../img/arrow.png) no-repeat 100% 1px;
-    display: inline-block;
+img{
     position: relative;
-    margin: 0;
-    padding: 0 36px 1px 13px !important;
-    -webkit-transition: 0.9s;
-    -moz-transition: 0.9s;
-    -o-transition: 0.9s;
-    transition: 0.9s;
-    vertical-align: top;
-    line-height: 22px;
-    font-size: 16px;
-    font-weight: 400;
-    text-decoration: none;
-    color: #e22004 !important;
-    border-left: 1px solid #555;
-}
-
-.about_bottom a {
-    pointer-events: none;
-    cursor: default;
-}
-
-a.about_btn:hover {
-    background: url(../img/arrow_hover.png) no-repeat 100% 1px;
-}
-
-.about_box {
-    margin-bottom: 2em;
-}
-
-div.list.custom-list ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.dropcap {
-    position: relative;
-    display: block;
-    float: left;
-    overflow: hidden;
-    width: 50px;
-    height: 50px;
-    background: #3A87AD;
-    color: #ffffff;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 50px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-}
-
-.dropcap {
-    background: none;
-    color: #e4551d;
-    text-align: left;
-}
-
-div.list.custom-list ul li h5 a {
-    display: block;
-    margin: 0 0 1px 0;
-    line-height: 21px;
-    font-size: 17px;
-    font-weight: 400;
-    color: #555;
-}
-
-div.list.custom-list ul li p {
-    display: block;
-    overflow: hidden;
-    font-style: normal;
-    font-size: 0.85em;
-    line-height: 1.8em;
-    color: #999;
-}
-
-div.list.custom-list ul li:first-child {
-    margin: 0;
-}
-
-div.list.custom-list ul li {
     width: 100%;
-    overflow: hidden;
-    margin: 30px 0 0 0;
-    padding: 0;
-    list-style: none;
+    height: 300px
 }
+#h1{
+    text-align: center;
+    color:#333333;
+    font-size: 30px;
+    font-family: 'Roboto Slab', serif;
+}
+#p1{
+    text-align: center;
+    color:#999999;
+    font-size: 20px;
+    font-family: 'Roboto';
+}
+.heading{
+    margin: 0 0 30px;
+    padding-top: 42px;
+    padding-bottom: 19px;
+}
+.heading.line {
+    right: 0;
+    margin: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    background-color: #333;
+    width: 35px;
+}
+#content{
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.card-title.sty{
+    border-left: 5px solid #ffb606;
+    padding:0px 30px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+    font-size: 20px
+}
+.card.sty1{
+    border: none;
+    margin: 0;
+}
+.card-text.sty2{
+    font-size: 15px;
+    font-family:'Roboto';
+}
+

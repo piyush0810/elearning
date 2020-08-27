@@ -4,31 +4,67 @@
 {% load static %}
 
 {% block content %}
-  <link href="{% static 'css/registration.css' %}" rel="stylesheet"/>
+  <link href="{% static 'css/login.css' %}" rel="stylesheet"/>
   <!-- Using this because of django redux registration which contains built-in validation. -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   {% if request.user.is_authenticated %}
     <script>
       window.location.replace("http://127.0.0.1:8000");
     </script>
   {% else %}
-  <div class='row'>
-    <div class='col-xs-12 col-sm-4 col-sm-offset-4 registration'>
-      <h1>Register for free!</h1>
-      <form method="post" action=".">
-        {% csrf_token %}
-        {{ form|crispy }}
+    <div class="limiter">
+      <div class="container-login100">
+        <div class="wrap-login100">
+          <div class="login100-pic">
+            <img src="{% static 'img/signup.jpg' %}" alt="IMG">
+          </div>
 
-        <input class='btn2 btn-block' type="submit" value="{% trans 'Join' %}"/>
-      </form>
-    </div>
-  </div>
+          <form class="login100-form" method="POST" action=".">
+            {% csrf_token %}
+            <span class="login100-form-title">
+              Register For Free !
+            </span>
 
-  <hr/>
-  <div class='row form-opt'>
-    <div class='col-sm-4 col-sm-offset-4 text-align-center'>
-      <p>Need to <a href="{% url 'auth_login' %}">Login</a>?</p>
+            <div class="wrap-input100">
+              <input class="input100" type="text" name="email" placeholder="Email">
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+              </span>
+            </div>
+
+            <div class="wrap-input100">
+              <input class="input100" type="password" name="pass" placeholder="Password">
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+              </span>
+            </div>
+            <div class="wrap-input100">
+              <input class="input100" type="password" name="pass" placeholder="Confirm Password">
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+              </span>
+            </div>
+            
+            <div class="container-login100-form-btn">
+              <button class="login100-form-btn" type="submit">
+                Sign Up
+              </button>
+            </div>
+
+            <div class="text-center">
+              <span class="txt1">
+                Need to 
+              </span>
+              <a class="txt2" href="{% url 'auth_login' %}">
+                Login ?
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-  </div>
   {% endif %}
-
 {% endblock %}
